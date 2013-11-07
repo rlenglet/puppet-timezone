@@ -11,7 +11,7 @@
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
-7. [License]
+7. [License](#license)
 
 ##Overview
 
@@ -19,23 +19,23 @@
 
 ##Module Description
 
-The `timezone` class sets the timezone on Debian.
+The 'timezone' class sets the timezone on Debian.
 
 ##Setup
 
 ###What timezone affects
 
-* `tzdata` Debian package.
+* 'tzdata' Debian package.
 * Timezone configuration file.
 
 ###Beginning with timezone	
 
-Just include `timezone`, or optionally pass the timezone area and zone
+Just include 'timezone', or optionally pass the timezone area and zone
 attributes (which default to `Etc`/`UTC`).
 
 ##Usage
 
-To specify the optional `area` and `zone` attributes for the PST
+To specify the optional 'area' and 'zone' attributes for the PST
 timezone:
 
 ```puppet
@@ -49,16 +49,16 @@ class { timezone:
 
 ###Class
 
-* `timezone`: Main class.
+* 'timezone': Main class.
 
 ###Attributes
 
-####`area`
+####'area'
 
 The general area of the timezone, e.g. `Europe`, `America`, etc.  If
 not specified, defaults to `Etc`.
 
-####`zone`
+####'zone'
 
 The timezone within the area, e.g. `Paris`, `Los_Angeles`, etc.  If
 not specified, defaults to `UTC`.
