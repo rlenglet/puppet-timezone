@@ -31,15 +31,16 @@ class timezone (
 
   debconf_package { tzdata:
     ensure => present,
-    content => inline_template( "tzdata	tzdata/Areas	select	<%= @area %>
-tzdata	tzdata/Zones/<%= @area %>	select	<%= @zone %>
-"),
+    content => "tzdata	tzdata/Areas	select	${area}
+tzdata	tzdata/Zones/${area}	select	${zone}
+",
   }
 
   # Work around Debian bug #605834, where tzdata's debconf is overwritten by
   # /etc/timezone.
   file { "/etc/timezone":
-    content => inline_template('<%= @area + "/" + @zone + "\n" %>'),
+    content => "${area}/${zone}
+",
     before => Exec["dpkg-reconfigure tzdata"],
     notify => Exec["dpkg-reconfigure tzdata"],
     owner => root,
