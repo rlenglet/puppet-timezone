@@ -36,7 +36,7 @@ tzdata	tzdata/Zones/<%= @area %>	select	<%= @zone %>
 "),
   }
 
-  # Work around Debian bug #605834, where tzdata's debconf is overriten by
+  # Work around Debian bug #605834, where tzdata's debconf is overwritten by
   # /etc/timezone.
   file { "/etc/timezone":
     content => inline_template('<%= @area + "/" + @zone + "\n" %>'),
