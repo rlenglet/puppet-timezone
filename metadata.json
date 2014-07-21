@@ -1,0 +1,24 @@
+{
+  "name": "rlenglet-timezone",
+  "version": "0.1.1",
+  "source": "https://github.com/rlenglet/puppet-timezone.git",
+  "author": "Romain Lenglet",
+  "license": "Apache License, Version 2.0",
+  "summary": "System timezone configuration",
+  "description": "Configures the system timezone",
+  "project_page": "https://github.com/rlenglet/puppet-timezone",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian"
+    },
+    {
+      "operatingsystem": "Ubuntu"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "rlenglet/debconf_package",
+      "version_requirement": ">= 0.1.0"
+    }
+  ]
+}

@@ -2,63 +2,55 @@
 
 ####Table of Contents
 
-1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
+1. [Overview - What is the timezone module?](#overview)
+2. [Module Description - What does the timezone module do?](#module-description)
 3. [Setup - The basics of getting started with timezone](#setup)
     * [What timezone affects](#what-timezone-affects)
     * [Beginning with timezone](#beginning-with-timezone)
 4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
 7. [License](#license)
 
 ##Overview
 
-(Re)configures the timezone on Debian.
+Configures the system timezone.
 
 ##Module Description
 
-The 'timezone' class sets the timezone on Debian.
+The `timezone` class configures the system timezone on Debian/Ubuntu.
 
 ##Setup
 
 ###What timezone affects
 
-* 'tzdata' Debian package.
-* Timezone configuration file.
+* `tzdata` Debian/Ubuntu package.
+* `/etc/timezone` timezone configuration file.
 
-###Beginning with timezone	
+###Beginning with timezone
 
-Just include 'timezone', or optionally pass the timezone area and zone
-attributes (which default to `Etc`/`UTC`).
+Just include the `timezone` class, or optionally pass the timezone `area`
+and `zone` attributes, which default to `Etc`/`UTC`:
+
+    class { timezone:
+      area => America,
+      zone => Los_Angeles,
+    }
+
+See `/usr/share/zoneinfo/zone.tab` for the list of valid areas and zones.
 
 ##Usage
 
-To specify the optional 'area' and 'zone' attributes for the PST
-timezone:
+###Class: `timezone`
 
-```puppet
-class { timezone:
-  area => America,
-  zone => Los_Angeles,
-}
-```
+####Parameters
 
-##Reference
-
-###Class
-
-* 'timezone': Main class.
-
-###Attributes
-
-####'area'
+#####`area`
 
 The general area of the timezone, e.g. `Europe`, `America`, etc.  If
 not specified, defaults to `Etc`.
 
-####'zone'
+#####`zone`
 
 The timezone within the area, e.g. `Paris`, `Los_Angeles`, etc.  If
 not specified, defaults to `UTC`.
@@ -75,13 +67,13 @@ page](https://github.com/rlenglet/puppet-timezone).
 
 ##License
 
-Copyright 2013 Romain Lenglet
+Copyright 2013, 2014 Romain Lenglet
 
 Licensed under the Apache License, Version 2.0 (the "License"); you
 may not use this file except in compliance with the License.  You may
 obtain a copy of the License at
 
-http://www.apache.org/licenses/LICENSE-2.0
+[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
